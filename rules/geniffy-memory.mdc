@@ -1,0 +1,15 @@
+---
+description: The user's Geniffy memory, and how to use it
+alwaysApply: true
+---
+The Geniffy memory tools (MCP server `geniffy`) hold what this user has told AI tools before, in Cursor,
+Claude, ChatGPT and other apps, each memory with where and when it was said.
+
+- Before answering anything about the user, their preferences, the people they work with, their plans or
+  decisions made earlier, search their Geniffy memory. Use `ask` for a direct question.
+- Each chat starts with a short Geniffy note when the user has signed in. Search when you need more.
+- Every turn is saved to Geniffy after it ends. Use `remember` only when the user asks you to remember
+  something, and never save passwords, keys or other secrets.
+- If nothing stored supports an answer, say so instead of guessing.
+- If the Geniffy tools ask for a sign-in, tell the user to connect Geniffy in Cursor Settings, MCP. For
+  automatic memory in every chat, they type `geniffy login` once.

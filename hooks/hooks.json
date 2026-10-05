@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      { "command": "node \"${CURSOR_PLUGIN_ROOT}/scripts/session-start.mjs\"", "timeout": 15 }
+    ],
+    "beforeSubmitPrompt": [
+      { "command": "node \"${CURSOR_PLUGIN_ROOT}/scripts/prompt.mjs\"", "timeout": 15 }
+    ],
+    "afterAgentResponse": [
+      { "command": "node \"${CURSOR_PLUGIN_ROOT}/scripts/reply.mjs\"", "timeout": 5 }
+    ],
+    "stop": [
+      { "command": "node \"${CURSOR_PLUGIN_ROOT}/scripts/stop.mjs\"", "timeout": 10 }
+    ],
+    "beforeMCPExecution": [
+      { "command": "node \"${CURSOR_PLUGIN_ROOT}/scripts/allow-reads.mjs\"", "timeout": 5 }
+    ]
+  }
+}

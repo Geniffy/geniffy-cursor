@@ -1,0 +1,19 @@
+{
+  "name": "geniffy",
+  "description": "Memory for Cursor: each chat starts with what Geniffy remembers about you and the project, and what you discuss is saved as you go, every fact with the line it came from.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Geniffy",
+    "email": "ops@geniffy.com"
+  },
+  "homepage": "https://docs.geniffy.com/mcp/cursor",
+  "repository": "https://github.com/Geniffy/geniffy-cursor",
+  "license": "MIT",
+  "logo": "logo.png",
+  "keywords": ["memory", "context", "mcp", "geniffy"],
+  "rules": "rules",
+  "skills": "skills",
+  "commands": "commands",
+  "hooks": "hooks/hooks.json",
+  "mcpServers": "mcp.json"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "geniffy-cursor",
+  "private": true,
+  "description": "Geniffy for Cursor: memory that remembers you and your projects.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test test/scrub.test.mjs test/cursor.test.mjs"
+  }
+}

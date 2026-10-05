@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "geniffy": {
+      "url": "https://api.geniffy.com/mcp"
+    }
+  }
+}
