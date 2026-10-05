@@ -4,6 +4,7 @@ import { spawn } from "node:child_process";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { call, credentials, discover, fetchWithin, removeFile, setState, state } from "./lib.mjs";
+import { signIn } from "./signin.mjs";
 import { SIGN_IN, TOOL_NAME } from "./tool.mjs";
 
 const NAMES = ["login", "logout", "status", "pause", "resume", "help"];
@@ -17,13 +18,19 @@ export function command(prompt) {
 
 const LOGIN = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "login.mjs");
 
-export async function run(name) {
+// `here`: run the sign-in in this process, for an app that keeps its plugins running (OpenCode, whose own
+// binary is not Node). Otherwise it gets a process of its own, as a hook's process ends with the hook.
+export async function run(name, { here = false } = {}) {
   if (name === "login") {
     // The sign-in waits for the browser for up to five minutes, longer than an app waits for a hook, so it
     // runs on its own and the chat goes on.
-    const child = spawn(process.execPath, [LOGIN], { detached: true, stdio: "ignore", env: process.env });
-    child.on("error", () => {});
-    child.unref();
+    if (here) {
+      signIn().catch(() => {});
+    } else {
+      const child = spawn(process.execPath, [LOGIN], { detached: true, stdio: "ignore", env: process.env });
+      child.on("error", () => {});
+      child.unref();
+    }
     return "Opening your browser to sign in to Geniffy. When the page says Connected, new chats start with what " +
       "Geniffy remembers and what you discuss is saved. (geniffy status shows where it stands.)";
   }
